@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 
 @Mod(PlayerReviveTaCZnSBW.MODID)
 public class PlayerReviveTaCZnSBW {
-    public static final String MODID = "playerrevive_tacz_sbw_compitability";
+    public static final String MODID = "playerrevive_compat";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public PlayerReviveTaCZnSBW() {
