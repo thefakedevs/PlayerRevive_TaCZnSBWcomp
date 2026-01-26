@@ -46,10 +46,13 @@ public class PlayerReviveTaCZnSBW {
 
     private void registerTaczHandler() {
         try {
-            Class<?> handlerClass = Class.forName("dev.baechka.playerrevive_compat.handler.TaczEventHandler");
-            MinecraftForge.EVENT_BUS.register(handlerClass);
+            Class<?> handlerClass = Class.forName("dev.baechka.playerrevive_compat.handler.tacz.TaczEventHandler");
+            handlerClass.getMethod("register").invoke(null);
+            LOGGER.info("TaCZ event handlers registered successfully");
         } catch (ClassNotFoundException e) {
             LOGGER.error("Failed to load TaCZ handler class", e);
+        } catch (Exception e) {
+            LOGGER.error("Failed to register TaCZ handler", e);
         }
     }
 }

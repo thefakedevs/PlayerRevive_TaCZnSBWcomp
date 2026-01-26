@@ -1,4 +1,4 @@
-package dev.baechka.playerrevive_compat.mixin.client;
+package dev.baechka.playerrevive_compat.mixin.tacz.client;
 
 import com.tacz.guns.client.input.ShootKey;
 import dev.baechka.playerrevive_compat.util.BleedingHelper;

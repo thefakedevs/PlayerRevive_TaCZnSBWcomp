@@ -1,4 +1,4 @@
-package dev.baechka.playerrevive_compat.mixin;
+package dev.baechka.playerrevive_compat.mixin.sbw;
 
 import com.atsuishio.superbwarfare.network.message.send.ShootMessage;
 import dev.baechka.playerrevive_compat.util.BleedingHelper;

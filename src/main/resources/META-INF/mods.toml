@@ -1,6 +1,16 @@
 modLoader = "javafml"
 loaderVersion = "${loader_version_range}"
 license = "${mod_license}"
+
+[[mixins]]
+config = "${mod_id}.mixins.json"
+
+[[mixins]]
+config = "${mod_id}.tacz.mixins.json"
+
+[[mixins]]
+config = "${mod_id}.sbw.mixins.json"
+
 [[mods]]
 modId = "${mod_id}"
 logoFile = "modicon.png"

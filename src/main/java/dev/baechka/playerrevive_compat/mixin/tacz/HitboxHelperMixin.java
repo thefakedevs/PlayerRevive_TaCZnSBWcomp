@@ -1,4 +1,4 @@
-package dev.baechka.playerrevive_compat.mixin;
+package dev.baechka.playerrevive_compat.mixin.tacz;
 
 import com.tacz.guns.util.HitboxHelper;
 import dev.baechka.playerrevive_compat.util.BleedingHelper;

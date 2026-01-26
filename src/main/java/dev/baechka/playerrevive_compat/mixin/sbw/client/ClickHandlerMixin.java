@@ -1,4 +1,4 @@
-package dev.baechka.playerrevive_compat.mixin.client;
+package dev.baechka.playerrevive_compat.mixin.sbw.client;
 
 import com.atsuishio.superbwarfare.client.ClickHandler;
 import com.atsuishio.superbwarfare.event.ClientEventHandler;

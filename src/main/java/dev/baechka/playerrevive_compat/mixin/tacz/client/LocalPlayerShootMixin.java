@@ -1,4 +1,4 @@
-package dev.baechka.playerrevive_compat.mixin.client;
+package dev.baechka.playerrevive_compat.mixin.tacz.client;
 
 import com.tacz.guns.api.entity.ShootResult;
 import com.tacz.guns.client.gameplay.LocalPlayerDataHolder;
