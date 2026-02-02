@@ -38,7 +38,8 @@ public class ClickHandlerMixin {
     }
 
     /**
-     * Перехватываем onButtonPressed для блокировки до вызова handleWeaponFirePress
+     * Перехватываем onButtonPressed для блокировки обработки SuperbWarfare
+     * Не отменяем сам event - это позволяет PlayerRevive обработать ЛКМ для ускорения смерти
      */
     @Inject(method = "onButtonPressed", at = @At("HEAD"), cancellable = true)
     private static void onButtonPressedHead(InputEvent.MouseButton.Pre event, CallbackInfo ci) {
@@ -47,16 +48,15 @@ public class ClickHandlerMixin {
         if (player != null && BleedingHelper.isBleeding(player)) {
             // Блокируем левый клик мыши (стрельба) - обычно button 0
             if (event.getButton() == 0) {
-                event.setCanceled(true);
                 ci.cancel();
             }
         }
     }
 
     /**
-     * Перехватываем onKeyPressed для блокировки стрельбы с клавиатуры
+     * Перехватываем onKeyPressed для сброса флагов стрельбы при нажатии клавиатуры
      */
-    @Inject(method = "onKeyPressed", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "onKeyPressed", at = @At("HEAD"))
     private static void onKeyPressedHead(InputEvent.Key event, CallbackInfo ci) {
         LocalPlayer player = Minecraft.getInstance().player;
 

@@ -4,7 +4,6 @@ import dev.baechka.playerrevive_compat.util.BleedingHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,14 +14,6 @@ import net.minecraftforge.fml.common.Mod;
  */
 @Mod.EventBusSubscriber(modid = "playerrevive_compat", value = Dist.CLIENT)
 public class ClientInputHandler {
-
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void onMouseInput(InputEvent.MouseButton.Pre event) {
-        LocalPlayer player = Minecraft.getInstance().player;
-        if (player != null && BleedingHelper.isBleeding(player) && event.getButton() == 0) {
-            event.setCanceled(true);
-        }
-    }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onClientTick(TickEvent.ClientTickEvent event) {
