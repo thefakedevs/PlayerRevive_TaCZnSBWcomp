@@ -11,6 +11,10 @@ config = "${mod_id}.tacz.mixins.json"
 [[mixins]]
 config = "${mod_id}.sbw.mixins.json"
 
+[[configs]]
+name = "${mod_id}"
+file = "${mod_id}-common.toml"
+
 [[mods]]
 modId = "${mod_id}"
 logoFile = "modicon.png"

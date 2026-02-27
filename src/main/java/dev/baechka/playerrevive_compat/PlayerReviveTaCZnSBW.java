@@ -1,6 +1,7 @@
 package dev.baechka.playerrevive_compat;
 
 import com.mojang.logging.LogUtils;
+import dev.baechka.playerrevive_compat.config.ModConfig;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -13,6 +14,8 @@ public class PlayerReviveTaCZnSBW {
 
     public PlayerReviveTaCZnSBW() {
         LOGGER.info("PlayerRevive TaCZ/SBW Compatibility mod initializing...");
+
+        net.minecraftforge.fml.ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, ModConfig.SPEC);
 
         boolean playerReviveLoaded = ModList.get().isLoaded("playerrevive");
         boolean taczLoaded = ModList.get().isLoaded("tacz");

@@ -1,6 +1,7 @@
 package dev.baechka.playerrevive_compat.mixin.sbw;
 
 import com.atsuishio.superbwarfare.network.message.send.ShootMessage;
+import dev.baechka.playerrevive_compat.config.ModConfig;
 import dev.baechka.playerrevive_compat.util.BleedingHelper;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
@@ -20,6 +21,10 @@ public class ShootMessageMixin {
 
     @Inject(method = "handler", at = @At("HEAD"), cancellable = true)
     private static void onHandler(ShootMessage message, Supplier<NetworkEvent.Context> contextSupplier, CallbackInfo ci) {
+        if (ModConfig.GENERAL.canShootWhenDowned.get()) {
+            return;
+        }
+
         NetworkEvent.Context context = contextSupplier.get();
         ServerPlayer player = context.getSender();
 

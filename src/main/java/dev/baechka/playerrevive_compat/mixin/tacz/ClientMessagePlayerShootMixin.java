@@ -1,6 +1,7 @@
 package dev.baechka.playerrevive_compat.mixin.tacz;
 
 import com.tacz.guns.network.message.ClientMessagePlayerShoot;
+import dev.baechka.playerrevive_compat.config.ModConfig;
 import dev.baechka.playerrevive_compat.util.BleedingHelper;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
@@ -20,6 +21,10 @@ public class ClientMessagePlayerShootMixin {
 
     @Inject(method = "handle", at = @At("HEAD"), cancellable = true)
     private static void onHandle(ClientMessagePlayerShoot message, Supplier<NetworkEvent.Context> contextSupplier, CallbackInfo ci) {
+        if (ModConfig.GENERAL.canShootWhenDowned.get()) {
+            return;
+        }
+
         NetworkEvent.Context context = contextSupplier.get();
 
         if (context.getDirection().getReceptionSide().isServer()) {
